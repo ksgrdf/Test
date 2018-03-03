@@ -39,6 +39,7 @@ public class FibonacciTest {
         assertEquals(0, fibonacci.fibonacciCount(0));
         assertEquals(1, fibonacci.fibonacciCount(1));
         assertEquals(233, fibonacci.fibonacciCount(13));
+        assertEquals(233, fibonacci.fibonacciCount(46));
 
 
     }
@@ -46,6 +47,7 @@ public class FibonacciTest {
     public void testToFibonacciException()
     {
         fibonacci.fibonacciCount(-1);
+        fibonacci.fibonacciCount(47);
     }
 
     @Test(expected = StackOverflowError.class)
@@ -53,4 +55,6 @@ public class FibonacciTest {
     {
         fibonacci.fibonacciCount(2147483647);
     }
+
+
 }
