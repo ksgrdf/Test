@@ -4,6 +4,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 
 /**
@@ -35,8 +36,21 @@ public class FibonacciTest {
     @Test
     public void testCount()
     {
-        assertEquals(0, fibonacci.fibonnacciCount(0));
-        assertEquals(1, fibonacci.fibonnacciCount(1));
-        assertEquals(233, fibonacci.fibonnacciCount(13));
+        assertEquals(0, fibonacci.fibonacciCount(0));
+        assertEquals(1, fibonacci.fibonacciCount(1));
+        assertEquals(233, fibonacci.fibonacciCount(13));
+
+
+    }
+    @Test(expected = IllegalArgumentException.class)
+    public void testToFibonacciException()
+    {
+        fibonacci.fibonacciCount(-1);
+    }
+
+    @Test(expected = StackOverflowError.class)
+    public void testFibonacciStack()
+    {
+        fibonacci.fibonacciCount(2147483647);
     }
 }

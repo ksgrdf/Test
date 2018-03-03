@@ -3,17 +3,22 @@
  */
 public class Fibonacci {
 
+    int position;
     public static void main(String[] args) {
         Fibonacci fibonacci = new Fibonacci();
-        System.out.println(fibonacci.fibonnacciCount(13));
+        System.out.println(fibonacci.fibonacciCount(fibonacci.position));
     }
 
-    public int fibonnacciCount(int n)
+    public int fibonacciCount(int n)
     {
+        if(n < 0) throw  new IllegalArgumentException();
+
         if(n == 0) return 0;
 
         if (n == 1) return 1;
 
-        else return fibonnacciCount(n -1) + fibonnacciCount(n - 2);
+        else return fibonacciCount(n -1) + fibonacciCount(n - 2);
+
+
     }
 }
